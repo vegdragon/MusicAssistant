@@ -31,6 +31,8 @@
 		AE6FF09D1DCC760C00A94DE1 /* PitchDetector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE6FF0941DCC760C00A94DE1 /* PitchDetector.cpp */; };
 		AE6FF09E1DCC760C00A94DE1 /* PitchDictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE6FF0961DCC760C00A94DE1 /* PitchDictionary.cpp */; };
 		AE6FF09F1DCC760C00A94DE1 /* SamplesQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE6FF0981DCC760C00A94DE1 /* SamplesQueue.cpp */; };
+		AEA6DC8B1DE0093700F408A6 /* Pitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA6DC8A1DE0093700F408A6 /* Pitch.swift */; };
+		AEE651DE1DDEC70000B5983C /* MusicDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE651DD1DDEC70000B5983C /* MusicDetector.swift */; };
 		AEF3EE3D1DD9CB7B007CDE81 /* PitchDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF3EE3C1DD9CB7B007CDE81 /* PitchDictionary.swift */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +99,8 @@
 		AE6FF0991DCC760C00A94DE1 /* SamplesQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SamplesQueue.h; sourceTree = "<group>"; };
 		AE6FF0A01DCC8F7B00A94DE1 /* MusicAssistant-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MusicAssistant-Bridging-Header.h"; sourceTree = "<group>"; };
 		AE6FF0A21DCC8FA500A94DE1 /* MuicAssistant_Pch.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MuicAssistant_Pch.pch; sourceTree = "<group>"; };
+		AEA6DC8A1DE0093700F408A6 /* Pitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pitch.swift; sourceTree = "<group>"; };
+		AEE651DD1DDEC70000B5983C /* MusicDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicDetector.swift; sourceTree = "<group>"; };
 		AEF3EE3C1DD9CB7B007CDE81 /* PitchDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PitchDictionary.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -264,6 +268,8 @@
 			isa = PBXGroup;
 			children = (
 				AEF3EE3C1DD9CB7B007CDE81 /* PitchDictionary.swift */,
+				AEE651DD1DDEC70000B5983C /* MusicDetector.swift */,
+				AEA6DC8A1DE0093700F408A6 /* Pitch.swift */,
 			);
 			path = MusicDetector;
 			sourceTree = "<group>";
@@ -414,7 +420,9 @@
 				AE6FF09B1DCC760C00A94DE1 /* MusicDetector.cpp in Sources */,
 				AE6FF07F1DCC747100A94DE1 /* AQPlayer.mm in Sources */,
 				AE6FF09E1DCC760C00A94DE1 /* PitchDictionary.cpp in Sources */,
+				AEE651DE1DDEC70000B5983C /* MusicDetector.swift in Sources */,
 				AE6FF07C1DCC747100A94DE1 /* CADebugMacros.cpp in Sources */,
+				AEA6DC8B1DE0093700F408A6 /* Pitch.swift in Sources */,
 				AE6FF09F1DCC760C00A94DE1 /* SamplesQueue.cpp in Sources */,
 				AE6FF0801DCC747100A94DE1 /* AQRecorder.mm in Sources */,
 				AE6FF0851DCC748600A94DE1 /* dywapitchtrack.c in Sources */,

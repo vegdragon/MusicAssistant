@@ -43,6 +43,8 @@ const pitch_freq_t PitchDictionary::frequencies[PITCH_COUNT] = {
 
 const pitch_freq_t PitchDictionary::indexToFrequency (pitch_idx_t idx)
 {
+    if (idx<0 || idx>=PITCH_COUNT)
+        return -1;
 	return frequencies[idx];
 }
 

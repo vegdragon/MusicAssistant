@@ -317,6 +317,8 @@ void AQRecorder::StopRecord()
     
     if (NULL!=mMusicAnalyzer)
     {
+        mMusicAnalyzer->stopAnalyzer();
+        usleep(5000);
         mMusicAnalyzer->release();
         delete mMusicAnalyzer;
         mMusicAnalyzer = NULL;

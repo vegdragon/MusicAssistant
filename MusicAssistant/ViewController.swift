@@ -9,17 +9,34 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var lblPitch: UILabel!
+    var _musicDetector = MusicDetector()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let cbCppToSwift: (double_t) -> Void = swiftCallbackFunc;
         RegisterCallBack(cbCppToSwift)
+        _musicDetector._musicNoteListeners = noteListener
+    }
+    
+    func noteListener (pitchIdx : pitch_idx_t)
+    {
+        let pitchDict = PitchDictionary()
+        let pitchName = pitchDict.indexToPitchName(idx: pitchIdx)
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated).async
+            {
+                DispatchQueue.main.async
+                {
+                    self.lblPitch.text = String(pitchName)
+                }
+            }
     }
     
     func swiftCallbackFunc (frequency : double_t)
     {
         print("frequency detected: ", frequency)
+        _musicDetector.insert(pitchSample: frequency)
     }
 
     override func didReceiveMemoryWarning() {

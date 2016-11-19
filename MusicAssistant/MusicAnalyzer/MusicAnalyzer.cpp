@@ -156,20 +156,8 @@ int MusicAnalyzer::stopAnalyzer()
 
 void MusicAnalyzer::musicListener (pitch_idx_t detectedIdx, int pitchCounter, Pitch & pitchNode)
 {
-	PitchDictionary pd;
 	if (pitchCounter > 5)
 	{
-		printf ("Detected Note(%s) %d times.\n", pd.indexToPitchName(detectedIdx), pitchCounter);
-        
-        /*
-		printf ("PitchNode Statistics: %.2lf(%.2lf\%), %.2lf(%.2lf\%), %.2lf(%.2lf\%), %.2lf(%.2lf\%)\n",
-				pitchNode._avgNegativeDeviation, pitchNode.avgNegDeviationPercentage(),
-				pitchNode._avgPositiveDeviation, pitchNode.avgPosDeviationPercentage(),
-				pitchNode._maxNegativeDeviation, pitchNode.maxNegDeviationPercentage(),
-				pitchNode._maxPositiveDeviation, pitchNode.maxPosDeviationPercentage()
-				);
-        */
-        
         swift_pitch_t swiftPitch;
         swiftPitch._pitchIndex = pitchNode._pitchIndex;
         swiftPitch._pitchIndex = pitchNode._pitchIndex;

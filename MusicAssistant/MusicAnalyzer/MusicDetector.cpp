@@ -94,21 +94,6 @@ void MusicDetector::insert(pitch_freq_t pitchSample)
 
     if (detectedIdx != lastDetectedIdx)
     {
-        musicNoteListener_func_t listener;
-		for (std::vector<musicNoteListener_func_t>::iterator it = musicNoteListeners.begin(); it != musicNoteListeners.end(); ++it)
-		{
-			Pitch pitchNode(
-					lastDetectedIdx,
-					pd.indexToFrequency(lastDetectedIdx),
-					totalPitchCounter,
-					maxNegativeDeviation,
-					maxPositiveDeviation,
-					totalPitchCounter!=0 ? acuNegativeDeviation/totalPitchCounter:-0xfff,
-					totalPitchCounter!=0 ? acuPositiveDeviation/totalPitchCounter:0xfff
-					);
-			listener = *it;
-			listener(lastDetectedIdx, detectedPitchCounter, pitchNode);
-		}
 		lastDetectedIdx = detectedIdx;
 		detectedPitchCounter = 0;
 		maxPositiveDeviation = 0;
