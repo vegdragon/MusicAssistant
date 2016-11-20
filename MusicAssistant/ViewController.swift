@@ -17,13 +17,12 @@ class ViewController: UIViewController {
         
         let cbCppToSwift: (double_t) -> Void = swiftCallbackFunc;
         RegisterCallBack(cbCppToSwift)
-        _musicDetector._musicNoteListeners = noteListener
+        _musicDetector._musicNoteListener = noteListener
     }
     
-    func noteListener (pitchIdx : pitch_idx_t)
+    func noteListener (pitch : swift_pitch_t)
     {
-        let pitchDict = PitchDictionary()
-        let pitchName = pitchDict.indexToPitchName(idx: pitchIdx)
+        let pitchName = PitchDictionary.indexToPitchName(idx: pitch._pitchIndex)
         DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated).async
             {
                 DispatchQueue.main.async
@@ -52,14 +51,15 @@ class ViewController: UIViewController {
             print("start recording...")
             AQRecorderObjC.initRecorder()
             AQRecorderObjC.startRecord()
-            // sender.title = "Stop"
+            //sender.setTitle("Stop", for: UIControlState.normal)
+        
             isRecording = true
         }
         else
         {
             print("stop recording...")
             AQRecorderObjC.stopRecord()
-            // sender.title = "Start"
+            //sender.setTitle("Start", for: UIControlState.normal)
             isRecording = false
         }
     }

@@ -66,7 +66,7 @@ class MusicDetector
     var _acuPositiveDeviation : pitch_freq_t = 0
     var _acuNegativeDeviation : pitch_freq_t = 0
     var _totalPitchCounter : Int = 0
-    var _musicNoteListeners : ((Int)->Void)? = nil
+    var _musicNoteListener : ((swift_pitch_t)->Void)? = nil
     static let PITCH_COUNT = 108
     
     init ()
@@ -96,13 +96,19 @@ class MusicDetector
         }
         
         detectedIdx = _pitchWindow.insert(idx: insertIdx);
-        //    printf("detectedIdx(%d), lastDetectedIdx(%d), pitchCounter(%d)\n",
-        //    		detectedIdx, lastDetectedIdx, pitchCounter);
-        //    std::cout<<"detected pitch: "<<pd.indexToPitchName(detectedIdx)<<std::endl;
         
         if (detectedIdx != _lastDetectedIdx)
         {
-            _musicNoteListeners!(detectedIdx)
+            let detectedPitch = swift_pitch_t(
+                _pitchIndex: detectedIdx,
+                _frequency: PitchDictionary.indexToFrequency(idx: detectedIdx),
+                _totalPitchCounter: _totalPitchCounter,
+                _maxPositiveDeviation: _maxPositiveDeviation,
+                _maxNegativeDeviation: _maxNegativeDeviation,
+                _avgPositiveDeviation: _totalPitchCounter==0 ? Double(-0xfff):(_acuNegativeDeviation/Double(_totalPitchCounter)),
+                _avgNegativeDeviation: _totalPitchCounter==0 ? Double(0xfff):_acuPositiveDeviation/Double(_totalPitchCounter),
+                _duration: 0)
+            _musicNoteListener!(detectedPitch)
             
             _lastDetectedIdx = detectedIdx;
             _detectedPitchCounter = 0;
@@ -143,10 +149,9 @@ class MusicDetector
     
     func detectAPitch(pitchSample : pitch_freq_t, deviation : inout pitch_freq_t) -> Int
     {
-        let pd = PitchDictionary()
         var idx : Int = -1;
         
-        idx = pd.frequencyToIndex(frequency: pitchSample, deviation: &deviation);
+        idx = PitchDictionary.frequencyToIndex(frequency: pitchSample, deviation: &deviation);
         
         return idx;
     }

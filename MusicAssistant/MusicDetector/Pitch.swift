@@ -26,24 +26,20 @@ struct swift_pitch_t
     
     func maxPosDeviationPercentage() -> Double
     {
-        let pd = PitchDictionary()
-        return _maxPositiveDeviation * 100.00 / pd.indexToFrequency(idx: _pitchIndex);
+        return _maxPositiveDeviation * 100.00 / PitchDictionary.indexToFrequency(idx: _pitchIndex);
     }
     func maxNegDeviationPercentage() -> Double
     {
-        let pd = PitchDictionary()
-        return _maxNegativeDeviation * 100.00 / pd.indexToFrequency(idx: _pitchIndex);
+        return _maxNegativeDeviation * 100.00 / PitchDictionary.indexToFrequency(idx: _pitchIndex);
     }
     
     func avgPosDeviationPercentage() -> Double
     {
-        let pd = PitchDictionary()
-        return _avgPositiveDeviation * 100.00 / pd.indexToFrequency(idx: _pitchIndex);
+        return _avgPositiveDeviation * 100.00 / PitchDictionary.indexToFrequency(idx: _pitchIndex);
     }
     func avgNegDeviationPercentage() -> Double
     {
-        let pd = PitchDictionary()
-        return _avgNegativeDeviation * 100.00 / pd.indexToFrequency(idx: _pitchIndex);
+        return _avgNegativeDeviation * 100.00 / PitchDictionary.indexToFrequency(idx: _pitchIndex);
     }
 
 }

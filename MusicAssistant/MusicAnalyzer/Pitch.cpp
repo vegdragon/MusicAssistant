@@ -7,6 +7,9 @@
 #include <stdio.h>
 #include "Pitch.h"
 
+#define MIN(a, b) (a)<(b) ? (a):(b)
+#define MAX(a, b) (a)>(b) ? (a):(b)
+
 const pitch_duration_t Pitch::DURATION_PER_SAMPLE_IN_MS = 1024.00 * 1000.00 / 44100.00;
 
 Pitch::Pitch() : _next(NULL) {}

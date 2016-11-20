@@ -9,13 +9,13 @@
 import Foundation
 class PitchDictionary
 {
-    let syllableName : [String:String] =
+    static let syllableName : [String:String] =
         [ "A":"la ", "B":"si ", "C":"do ", "D":"re ", "E":"mi ", "F":"fa ", "G":"sol"]
     
     //**********************
     // pitch table
     //**********************
-    let pitchNames = [
+    static let pitchNames = [
         "C0 ","C0#","D0 ","D0#","E0 ","F0 ","F0#","G0 ","G0#","A0 ","A0#","B0 ",
         "C1 ","C1#","D1 ","D1#","E1 ","F1 ","F1#","G1 ","G1#","A1 ","A1#","B1 ",
         "C2 ","C2#","D2 ","D2#","E2 ","F2 ","F2#","G2 ","G2#","A2 ","A2#","B2 ",
@@ -27,7 +27,7 @@ class PitchDictionary
         "C8 ","C8#","D8 ","D8#","E8 ","F8 ","F8#","G8 ","G8#","A8 ","A8#","B8 "
         ]
     
-    let frequencies : [pitch_freq_t] = [
+    static let frequencies : [pitch_freq_t] = [
         16.352,17.324,18.354,20,21,22,23,25,26,28,29,31,
         33,35,37,39,41,44,46,49,52,55,58,62,
         65,69,73,78,82,87,93,98,104,110,117,124,
@@ -39,24 +39,24 @@ class PitchDictionary
         4186,4435,4699,4978,5274,5588,5920,6272,6645,7040,7459,7902,
         ]
     
-    public func indexToFrequency (idx : pitch_idx_t) -> double_t
+    static public func indexToFrequency (idx : pitch_idx_t) -> double_t
     {
         return frequencies[idx]
     }
     
-    func indexToPitchName (idx : pitch_idx_t) -> String
+    static func indexToPitchName (idx : pitch_idx_t) -> String
     {
         return pitchNames[idx];
     }
     
-    func indexToSylableName (idx : pitch_idx_t) -> String
+    static func indexToSylableName (idx : pitch_idx_t) -> String
     {
         let pitchName = pitchNames[idx].substring(to: pitchNames[idx].startIndex)
         return syllableName[pitchName]!
     }
 
 
-    func frequencyToIndex (frequency : pitch_freq_t, deviation : inout pitch_freq_t) -> Int
+    static func frequencyToIndex (frequency : pitch_freq_t, deviation : inout pitch_freq_t) -> Int
     {
         var idx = -1
         let countOfFrequencies = frequencies.count
@@ -112,7 +112,7 @@ class PitchDictionary
     
     
     // search algorithm
-    func searchFrequencyInArray(frequency : pitch_freq_t, startIdx : pitch_idx_t, endIdx : pitch_idx_t) -> Int
+    static func searchFrequencyInArray(frequency : pitch_freq_t, startIdx : pitch_idx_t, endIdx : pitch_idx_t) -> Int
     {
         if (abs(endIdx-startIdx)<=1)
         {

@@ -78,7 +78,6 @@ void MusicDetector::insert(pitch_freq_t pitchSample)
     static pitch_freq_t acuPositiveDeviation = 0;
     static pitch_freq_t acuNegativeDeviation = 0;
     static int totalPitchCounter = 0;
-    PitchDictionary pd;
 
     insertIdx = detectAPitch (pitchSample, deviation);
     if (insertIdx<0 || insertIdx>=PITCH_COUNT)

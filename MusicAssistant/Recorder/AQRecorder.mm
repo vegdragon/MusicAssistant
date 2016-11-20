@@ -149,7 +149,6 @@ void AQRecorder::MyInputBufferHandler(	void *								inUserData,
 {
     AQRecorder *aqr = (AQRecorder *)inUserData;
     PitchDetector   pitchDetector;
-    NoteDesc        noteDesc;
     
     // printf("inNumPackets = %d\n", inNumPackets);
     
@@ -205,7 +204,7 @@ void AQRecorder::SetupAudioFormat(UInt32 inFormatID)
 {
 	memset(&mRecordFormat, 0, sizeof(mRecordFormat));
 
-	UInt32 size = sizeof(mRecordFormat.mSampleRate);
+	// UInt32 size = sizeof(mRecordFormat.mSampleRate);
     AVAudioSession *session = [AVAudioSession sharedInstance];
     mRecordFormat.mSampleRate = session.sampleRate;
     mRecordFormat.mChannelsPerFrame = (UInt32)session.inputNumberOfChannels;
@@ -318,7 +317,7 @@ void AQRecorder::StopRecord()
     if (NULL!=mMusicAnalyzer)
     {
         mMusicAnalyzer->stopAnalyzer();
-        usleep(5000);
+        usleep(50000);
         mMusicAnalyzer->release();
         delete mMusicAnalyzer;
         mMusicAnalyzer = NULL;

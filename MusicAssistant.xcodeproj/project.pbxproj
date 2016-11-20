@@ -97,7 +97,7 @@
 		AE6FF0971DCC760C00A94DE1 /* PitchDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PitchDictionary.h; sourceTree = "<group>"; };
 		AE6FF0981DCC760C00A94DE1 /* SamplesQueue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SamplesQueue.cpp; sourceTree = "<group>"; };
 		AE6FF0991DCC760C00A94DE1 /* SamplesQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SamplesQueue.h; sourceTree = "<group>"; };
-		AE6FF0A01DCC8F7B00A94DE1 /* MusicAssistant-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MusicAssistant-Bridging-Header.h"; sourceTree = "<group>"; };
+		AE6FF0A01DCC8F7B00A94DE1 /* MusicAssistant-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "MusicAssistant-Bridging-Header.h"; path = "../MusicAssistant-Bridging-Header.h"; sourceTree = "<group>"; };
 		AE6FF0A21DCC8FA500A94DE1 /* MuicAssistant_Pch.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MuicAssistant_Pch.pch; sourceTree = "<group>"; };
 		AEA6DC8A1DE0093700F408A6 /* Pitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pitch.swift; sourceTree = "<group>"; };
 		AEE651DD1DDEC70000B5983C /* MusicDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicDetector.swift; sourceTree = "<group>"; };
@@ -158,7 +158,6 @@
 			children = (
 				AEF3EE3B1DD9CB7B007CDE81 /* MusicDetector */,
 				AE6FF0A11DCC8FA500A94DE1 /* OtherSources */,
-				AE6FF0A01DCC8F7B00A94DE1 /* MusicAssistant-Bridging-Header.h */,
 				AE6FF08D1DCC760C00A94DE1 /* MusicAnalyzer */,
 				AE6FF0821DCC748600A94DE1 /* FFT */,
 				AE6FF06D1DCC747100A94DE1 /* PublicUtility */,
@@ -259,6 +258,7 @@
 		AE6FF0A11DCC8FA500A94DE1 /* OtherSources */ = {
 			isa = PBXGroup;
 			children = (
+				AE6FF0A01DCC8F7B00A94DE1 /* MusicAssistant-Bridging-Header.h */,
 				AE6FF0A21DCC8FA500A94DE1 /* MuicAssistant_Pch.pch */,
 			);
 			path = OtherSources;
@@ -337,7 +337,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = Baresi;
 				TargetAttributes = {
 					AE5FDE5A1DCC1D6300CAE50F = {
@@ -500,6 +500,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -522,7 +523,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -550,6 +551,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -566,7 +568,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

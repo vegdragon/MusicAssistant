@@ -82,7 +82,7 @@ void * MusicAnalyzer::AnalyzerThread(void * data)
             
             if (freqDetected>0)
             {
-				_musicDetector->insert(freqDetected);
+				// _musicDetector->insert(freqDetected);
                 
                 // deliver freq to swift
                 typedef void (^SwiftCallbackFunc)(double);
