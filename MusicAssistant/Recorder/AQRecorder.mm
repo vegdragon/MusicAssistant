@@ -53,6 +53,7 @@ Copyright (C) 2012 Apple Inc. All Rights Reserved.
 
 
 AQRecorder * AQRecorder::mRecorder = NULL;
+PitchDetector * AQRecorder::mPitchDetector = NULL;
 
 AQRecorder::AQRecorder() : mIsRunning(false), mRecordPacket(0), mMusicAnalyzer(NULL)
 {
@@ -73,6 +74,11 @@ AQRecorder * AQRecorder::getInstance()
     if (NULL == mRecorder)
     {
         mRecorder = new AQRecorder();
+    }
+    if (NULL == mPitchDetector)
+    {
+        mPitchDetector = new PitchDetector();
+        mPitchDetector->init();
     }
     return mRecorder;
 }
@@ -148,11 +154,6 @@ void AQRecorder::MyInputBufferHandler(	void *								inUserData,
 										const AudioStreamPacketDescription*	inPacketDesc)
 {
     AQRecorder *aqr = (AQRecorder *)inUserData;
-    PitchDetector   pitchDetector;
-    
-    // printf("inNumPackets = %d\n", inNumPackets);
-    
-    pitchDetector.init();
     
     try {
         // [AS] compute pitch
@@ -166,9 +167,8 @@ void AQRecorder::MyInputBufferHandler(	void *								inUserData,
     } catch (CAXException e) {
         char buf[256];
         fprintf(stderr, "Error: %s (%s)\n", e.mOperation, e.FormatError(buf));
-    }
-    
-    pitchDetector.release();}
+    }    
+}
 
 
 

@@ -9,11 +9,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <unistd.h>
 
 #include "PitchDetector.h"
+#include "Chromagram.h"
+#include "ChordDetector.h"
 
-
-PitchDetector::PitchDetector()
+PitchDetector::PitchDetector() : _chromagram(1024, 44100)
 {
     ;
 }
@@ -64,6 +66,28 @@ const double PitchDetector::detectFrequency(SamplesNode * pSamplesNode)
     return freqDetected;
 }
 
+const double PitchDetector::detectChord(SamplesNode * pSamplesNode)
+{
+    int frameSize = pSamplesNode->sampleSize;
+    int sampleRate = 44100;
+    
+    _chromagram.setInputAudioFrameSize(frameSize);
+    _chromagram.setSamplingFrequency(sampleRate);
+    _chromagram.processAudioFrame (pSamplesNode->samples);
+    if (_chromagram.isReady())
+    {
+        std::vector<double> chroma = _chromagram.getChromagram();
+        
+        // do something with the chromagram here
+        ChordDetector chordDetector;
+        chordDetector.detectChord (chroma);
+        chordDetector.rootNote;
+        chordDetector.quality;
+        chordDetector.intervals;
+    }
+    
+    return 0;
+}
 
 // search algorithm
 int PitchDetector::searchFrequencyInArray(double frequency, int startIdx, int endIdx)

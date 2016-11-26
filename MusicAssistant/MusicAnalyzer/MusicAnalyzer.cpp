@@ -79,6 +79,7 @@ void * MusicAnalyzer::AnalyzerThread(void * data)
             double freqDetected = -1;
             // decode pitch info from samples
             freqDetected = pContext->_pitchDetector->detectFrequency(pSampleNode);
+            pContext->_pitchDetector->detectChord(pSampleNode);
             
             if (freqDetected>0)
             {

@@ -11,6 +11,8 @@
 
 #include "dywapitchtrack.h"
 #include <string.h>
+#include "Chromagram.h"
+#include "ChordDetector.h"
 
 #define SAMPLES_COUNT 1024
 
@@ -51,6 +53,7 @@ public:
     void release();
     const double detectFrequency(SamplesNode * pSampleNote);
     const char * notationName(const char * pitchName);
+    const double detectChord(SamplesNode * pSampleNote);
     
 private:
     int searchFrequencyInArray(double frequency, int startIdx, int endIdx);
@@ -61,6 +64,7 @@ private:
 private:
     bool initialized;
     dywapitchtracker _pitchTracker;
+    Chromagram _chromagram;
     
     const int   SAMPLE_COUNT    = 2048;
     

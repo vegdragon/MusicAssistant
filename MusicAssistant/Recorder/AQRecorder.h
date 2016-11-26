@@ -88,7 +88,7 @@ class AQRecorder
 		CAStreamBasicDescription	mRecordFormat;
 		Boolean						mIsRunning;
         MusicAnalyzer               *mMusicAnalyzer;
-
+        static PitchDetector        *mPitchDetector;
 
 		void			CopyEncoderCookieToFile();
 		void			SetupAudioFormat(UInt32 inFormatID);

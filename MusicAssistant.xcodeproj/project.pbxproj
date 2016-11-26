@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE5A4CA11DE90C8100AC439C /* COPYING in Resources */ = {isa = PBXBuildFile; fileRef = AE5A4C971DE90C8100AC439C /* COPYING */; };
+		AE5A4CA21DE90C8100AC439C /* kiss_fft.c in Sources */ = {isa = PBXBuildFile; fileRef = AE5A4C981DE90C8100AC439C /* kiss_fft.c */; };
+		AE5A4CA31DE90C8100AC439C /* README in Resources */ = {isa = PBXBuildFile; fileRef = AE5A4C9B1DE90C8100AC439C /* README */; };
+		AE5A4CA41DE90C8100AC439C /* ChordDetector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE5A4C9D1DE90C8100AC439C /* ChordDetector.cpp */; };
+		AE5A4CA51DE90C8100AC439C /* Chromagram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE5A4C9F1DE90C8100AC439C /* Chromagram.cpp */; };
 		AE5FDE5F1DCC1D6400CAE50F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5FDE5E1DCC1D6400CAE50F /* AppDelegate.swift */; };
 		AE5FDE611DCC1D6400CAE50F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5FDE601DCC1D6400CAE50F /* ViewController.swift */; };
 		AE5FDE641DCC1D6400CAE50F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE5FDE621DCC1D6400CAE50F /* Main.storyboard */; };
@@ -54,6 +59,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AE5A4C961DE90C8100AC439C /* _kiss_fft_guts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _kiss_fft_guts.h; sourceTree = "<group>"; };
+		AE5A4C971DE90C8100AC439C /* COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
+		AE5A4C981DE90C8100AC439C /* kiss_fft.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = kiss_fft.c; sourceTree = "<group>"; };
+		AE5A4C991DE90C8100AC439C /* kiss_fft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kiss_fft.h; sourceTree = "<group>"; };
+		AE5A4C9A1DE90C8100AC439C /* kissfft.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = kissfft.hh; sourceTree = "<group>"; };
+		AE5A4C9B1DE90C8100AC439C /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		AE5A4C9D1DE90C8100AC439C /* ChordDetector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChordDetector.cpp; sourceTree = "<group>"; };
+		AE5A4C9E1DE90C8100AC439C /* ChordDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChordDetector.h; sourceTree = "<group>"; };
+		AE5A4C9F1DE90C8100AC439C /* Chromagram.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Chromagram.cpp; sourceTree = "<group>"; };
+		AE5A4CA01DE90C8100AC439C /* Chromagram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chromagram.h; sourceTree = "<group>"; };
 		AE5FDE5B1DCC1D6400CAE50F /* MusicAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE5FDE5E1DCC1D6400CAE50F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE5FDE601DCC1D6400CAE50F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +147,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AE5A4C931DE90C8100AC439C /* Chord-Detector-and-Chromagram */ = {
+			isa = PBXGroup;
+			children = (
+				AE5A4C941DE90C8100AC439C /* libs */,
+				AE5A4C9C1DE90C8100AC439C /* src */,
+			);
+			path = "Chord-Detector-and-Chromagram";
+			sourceTree = "<group>";
+		};
+		AE5A4C941DE90C8100AC439C /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				AE5A4C951DE90C8100AC439C /* kiss_fft130 */,
+			);
+			path = libs;
+			sourceTree = "<group>";
+		};
+		AE5A4C951DE90C8100AC439C /* kiss_fft130 */ = {
+			isa = PBXGroup;
+			children = (
+				AE5A4C961DE90C8100AC439C /* _kiss_fft_guts.h */,
+				AE5A4C971DE90C8100AC439C /* COPYING */,
+				AE5A4C981DE90C8100AC439C /* kiss_fft.c */,
+				AE5A4C991DE90C8100AC439C /* kiss_fft.h */,
+				AE5A4C9A1DE90C8100AC439C /* kissfft.hh */,
+				AE5A4C9B1DE90C8100AC439C /* README */,
+			);
+			path = kiss_fft130;
+			sourceTree = "<group>";
+		};
+		AE5A4C9C1DE90C8100AC439C /* src */ = {
+			isa = PBXGroup;
+			children = (
+				AE5A4C9D1DE90C8100AC439C /* ChordDetector.cpp */,
+				AE5A4C9E1DE90C8100AC439C /* ChordDetector.h */,
+				AE5A4C9F1DE90C8100AC439C /* Chromagram.cpp */,
+				AE5A4CA01DE90C8100AC439C /* Chromagram.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
 		AE5FDE521DCC1D6300CAE50F = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +212,7 @@
 		AE5FDE5D1DCC1D6400CAE50F /* MusicAssistant */ = {
 			isa = PBXGroup;
 			children = (
+				AE5A4C931DE90C8100AC439C /* Chord-Detector-and-Chromagram */,
 				AEF3EE3B1DD9CB7B007CDE81 /* MusicDetector */,
 				AE6FF0A11DCC8FA500A94DE1 /* OtherSources */,
 				AE6FF08D1DCC760C00A94DE1 /* MusicAnalyzer */,
@@ -382,6 +439,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE5A4CA31DE90C8100AC439C /* README in Resources */,
+				AE5A4CA11DE90C8100AC439C /* COPYING in Resources */,
 				AE5FDE6C1DCC1D6400CAE50F /* LaunchScreen.storyboard in Resources */,
 				AE5FDE691DCC1D6400CAE50F /* Assets.xcassets in Resources */,
 				AE5FDE641DCC1D6400CAE50F /* Main.storyboard in Resources */,
@@ -409,6 +468,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE5A4CA51DE90C8100AC439C /* Chromagram.cpp in Sources */,
+				AE5A4CA21DE90C8100AC439C /* kiss_fft.c in Sources */,
 				AE6FF07E1DCC747100A94DE1 /* CAXException.cpp in Sources */,
 				AE6FF09C1DCC760C00A94DE1 /* Pitch.cpp in Sources */,
 				AE6FF09A1DCC760C00A94DE1 /* MusicAnalyzer.cpp in Sources */,
@@ -426,6 +487,7 @@
 				AE6FF09F1DCC760C00A94DE1 /* SamplesQueue.cpp in Sources */,
 				AE6FF0801DCC747100A94DE1 /* AQRecorder.mm in Sources */,
 				AE6FF0851DCC748600A94DE1 /* dywapitchtrack.c in Sources */,
+				AE5A4CA41DE90C8100AC439C /* ChordDetector.cpp in Sources */,
 				AE5FDE5F1DCC1D6400CAE50F /* AppDelegate.swift in Sources */,
 				AE6FF07D1DCC747100A94DE1 /* CAStreamBasicDescription.cpp in Sources */,
 			);

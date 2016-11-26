@@ -8,8 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,UITableViewDataSource {
     @IBOutlet weak var lblPitch: UILabel!
+    @IBOutlet weak var tblMusic: UITableView!
+    
     var _musicDetector = MusicDetector()
 
     override func viewDidLoad() {
@@ -22,12 +24,17 @@ class ViewController: UIViewController {
     
     func noteListener (pitch : swift_pitch_t)
     {
-        let pitchName = PitchDictionary.indexToPitchName(idx: pitch._pitchIndex)
+        let displayText = PitchDictionary.indexToPitchName(idx: pitch._pitchIndex)
+            + ";" + String(format: "%.2f", pitch.maxNegDeviationPercentage()) + "%"
+            + "; " + String(format: "%.2f", pitch.maxPosDeviationPercentage()) + "%"
+            + ";" + String(format: "%.2f", pitch._maxNegativeDeviation)
+            + ";" + String(format: "%.2f", pitch._maxPositiveDeviation)
+
         DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated).async
             {
                 DispatchQueue.main.async
                 {
-                    self.lblPitch.text = String(pitchName)
+                    self.lblPitch.text = String(displayText)
                 }
             }
     }
@@ -46,12 +53,14 @@ class ViewController: UIViewController {
     var isRecording = false;
     @IBAction func startRecording(_ sender: AnyObject)
     {
+        var title : String? = nil
+        
         if (!isRecording)
         {
             print("start recording...")
             AQRecorderObjC.initRecorder()
             AQRecorderObjC.startRecord()
-            //sender.setTitle("Stop", for: UIControlState.normal)
+            title = "Stop"
         
             isRecording = true
         }
@@ -59,10 +68,27 @@ class ViewController: UIViewController {
         {
             print("stop recording...")
             AQRecorderObjC.stopRecord()
-            //sender.setTitle("Start", for: UIControlState.normal)
+            title = "Start"
             isRecording = false
         }
+
+        //sender.setTitle(title, for: .normal)
     }
 
+    private func numberOfSectionsInTableView(tableView: UITableView) -> Int
+    {
+        return 1
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return 3
+    }
+    func tableView(_ tableView:UITableView, cellForRowAt indexPath:IndexPath)->UITableViewCell
+    {
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "reuseIdentifier")
+        cell.textLabel!.text = "/(data.object(at: indexPath.row))"
+        return cell
+    }
+    
 }
 
